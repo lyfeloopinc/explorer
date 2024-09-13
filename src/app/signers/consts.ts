@@ -76,9 +76,3 @@ export const SIGNER_KEY_MAP: Record<string, { poolOperator: string; name: string
     name: 'Degen Lab',
   },
 };
-
-export const mobileBorderCss = {
-  '.has-horizontal-scroll &': {
-    borderRight: '2px solid var(--stacks-colors-borderPrimary)',
-  },
-};

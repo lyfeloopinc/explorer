@@ -6,6 +6,7 @@ import { Block, NakamotoBlock } from '@stacks/blockchain-api-client';
 
 import { BlockLink, ExplorerLink } from '../../../../common/components/ExplorerLinks';
 import { Timestamp } from '../../../../common/components/Timestamp';
+import { mobileBorderCss } from '../../../../common/constants/constants';
 import { useInfiniteQueryResult } from '../../../../common/hooks/useInfiniteQueryResult';
 import { useBlocksByBurnBlock } from '../../../../common/queries/useBlocksByBurnBlock';
 import { truncateMiddle } from '../../../../common/utils/utils';
@@ -23,7 +24,7 @@ import { BlockCount } from '../BlockCount';
 import { useBlockListContext } from '../BlockListContext';
 import { LineAndNode } from '../LineAndNode';
 import { ScrollableBox } from '../ScrollableDiv';
-import { getFadeAnimationStyle, mobileBorderCss } from '../consts';
+import { getFadeAnimationStyle } from '../consts';
 import { BlockListStxBlock } from '../types';
 import { BlockListData, createBlockListStxBlock } from '../utils';
 
@@ -359,7 +360,8 @@ function StxBlocksGroupedByBtcBlock({
   const { fetchNextPage, hasNextPage } = response;
   const additionalStxBlocks = useInfiniteQueryResult<Block | NakamotoBlock>(response);
 
-  const handleLoadMoreStxBlocks = useCallback(() => { // TODO: remove this comment
+  const handleLoadMoreStxBlocks = useCallback(() => {
+    // TODO: remove this comment
     setEnabled(true);
     if (hasNextPage) {
       fetchNextPage();
